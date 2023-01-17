@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+    <a href="{% url 'caduser' %}">Cadastrar usuário</a>
+    <a href="{% url 'painel' %}">Fazer Login</a>
+{% endblock %}

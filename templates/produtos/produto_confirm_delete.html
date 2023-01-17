@@ -1,0 +1,12 @@
+{%  extends 'main.html' %}
+{% block title %} 
+Confirmação de Exclusão
+{% endblock %}
+{% block content %}
+    Tem certeza que deseja apagar o produto '{{ object.nome }}'?
+    <form action="." method="post">
+        {% csrf_token %}
+        <input type="submit" value="Sim, tenho certeza!">
+        <input type="reset" onclick="location.href = '{% url 'produto_list' %}'" value="Não, vou manter o produto!">
+    </form>
+{% endblock %}

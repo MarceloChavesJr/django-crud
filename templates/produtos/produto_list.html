@@ -1,0 +1,14 @@
+{%  extends 'main.html' %}
+{% block title %} 
+Listagem de Produtos
+{% endblock %}
+{% block content %}
+    <h1>Lista de Produtos</h1>
+    <input type="submit" value="Cadastrar um Produto" onclick="location.href = '{% url 'produto_create' %}'" >
+    <ul>
+        {% for produto in object_list %}
+        <li><a href="{% url 'produto_detail' pk=produto.id %}">{{ produto.nome }}</a> - <a href="{% url 'produto_update' pk=produto.id %}">Editar</a> 
+            - <a href="{% url 'produto_delete' pk=produto.id %}">Deletar</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

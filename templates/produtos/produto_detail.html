@@ -1,0 +1,15 @@
+{%  extends 'main.html' %}
+{% block title %} 
+Visualização de Produto
+{% endblock %}
+{% block content %}
+    <input type="submit" value="Voltar" onclick="location.href = '{% url 'produto_list' %}'" >
+    <br>
+    Nome: {{ object.nome }}
+    <br>
+    Preço: {{ object.preco }}
+    <br>
+    Fabricante: {{ object.fabricante }}
+    <br>
+    Quantidade: {{ object.quantidade }}
+{% endblock %}

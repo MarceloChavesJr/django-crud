@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block title %}
+Cadastro de Usuários
+{% endblock %}
+{% block content %}
+    <form name="form-users" id="formUsers" method="post" action="/dologin/">
+        <div class="col-6 mt-4 m-auto">
+            {% csrf_token %}
+            {% if success %}
+                <div class="alert {{ class }} mt-4">
+                    {{ success }}
+                </div>
+            {% endif %}
+            <div class="form-floating mt-4">
+                <input class="form-control mt-4" type="text" name="user" id="user" placeholder="Nome de Usuário" value="{{ cuser }}">
+                <label for="user">Nome de Usuário</label>
+            </div>
+            <div class="form-floating mt-4">
+                <input class="form-control mt-4" type="password" name="password" id="password" placeholder="Senha">
+                <label for="password">Senha</label>
+            </div>
+            {% if erroSenha %}
+                <div class="alert {{ class }} mt-4">
+                    {{ erroSenha }}
+                </div>
+            {% endif %}     
+               
+            <input class="btn btn-dark mt-4" type="submit" value="Login">
+        </div>
+    </form>
+{% endblock %}
